@@ -11,7 +11,9 @@ Functions to assign relative risks of disease to individuals based on their toba
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://stapm.github.io/tobalcepi/}
+  \item \url{https://github.com/stapm-platform/tobalcepi}
+  \item \url{https://stapm-platform.github.io/tobalcepi}
+  \item Report bugs at \url{https://github.com/stapm-platform/tobalcepi/issues}
 }
 
 }
@@ -20,10 +22,15 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Laura Webster
-  \item Maddy Henney
+  \item Duncan Gillespie \email{duncan.gillespie@sheffield.ac.uk} (\href{https://orcid.org/0000-0003-3450-5747}{ORCID})
   \item Colin Angus \email{c.r.angus@sheffield.ac.uk}
   \item Alan Brennan \email{a.brennan@sheffield.ac.uk}
+}
+
+Other contributors:
+\itemize{
+  \item Laura Webster [contributor]
+  \item Maddy Henney [contributor]
 }
 
 }

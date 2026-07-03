@@ -27,7 +27,6 @@ packages <- c(
   "cowsay",
   "curl",
   "cowplot",
-  "dvmisc",
   "DiagrammeR",
   "data.table",
   "DirichletReg",
@@ -75,8 +74,7 @@ packages <- c(
   "VGAM",
   "viridis",
   "writexl",
-  "pkgdown",
-  "DLL")
+  "pkgdown")
 
 
 # Install packages not yet installed
@@ -89,11 +87,11 @@ if (any(installed_packages == FALSE)) {
 
 # Install the hseclean package
 devtools::install_git(
-  "https://github.com/stapm/hseclean.git",
+  "https://github.com/stapm-platform/hseclean.git",
   build_vignettes = FALSE, quiet = TRUE)
 
 devtools::install_git(
-  "https://github.com/stapm/tobalcepi.git",
+  "https://github.com/stapm-platform/tobalcepi.git",
   build_vignettes = FALSE, quiet = TRUE)
 
 

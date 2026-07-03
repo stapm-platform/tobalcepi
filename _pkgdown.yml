@@ -1,36 +1,34 @@
-destination: docs
+url: https://stapm-platform.github.io/tobalcepi
+
 home:
   title: Relative Risks and Population Attributable Fractions of Diseases Related to Tobacco and Alcohol
-url: https://stapm.github.io/tobalcepi/
+
 template:
-  params:
-    bootswatch: flatly
-    ganalytics: UA-167990045-1
+  bootstrap: 5
+  bootswatch: flatly
+
 authors:
   Duncan Gillespie:
     href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/gillespie_d
-  Maddy Henney:
-    href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/henney_m
   Colin Angus:
     href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/angus_c
   Alan Brennan:
     href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/brennan_a
-    
+
 navbar:
   structure:
-    left:  [home, intro, reference, articles]
-    right: [github, gitlab, software]
+    left:  [intro, reference, articles]
+    right: [software, github]
   components:
-    home: ~
     intro:
-     text: Get started
-     href: articles/tobalcepi.html
+      text: Get started
+      href: articles/tobalcepi.html
     reference:
-     text: Functions
-     href: reference/index.html
+      text: Functions
+      href: reference/index.html
     articles:
-     text: Technical documentation
-     menu:
+      text: Technical documentation
+      menu:
       - text: Disease risk methods
         href: articles/Methods_for_STAPM_disease_risks.html
       - text: Alcohol disease risks
@@ -39,17 +37,15 @@ navbar:
         href: articles/Smoking_and_the_risks_of_adult_diseases.pdf
       - text: Population Attributable Fraction methods
         href: articles/PAF_methodology_report.html
-        
-    github:
-     icon: fab fa-github fa-lg
-     href: https://github.com/STAPM/tobalcepi
-    gitlab:
-      icon: fab fa-gitlab fa-lg
-      href: https://gitlab.com/stapm/r-packages/tobalcepi
     software:
       icon: fa-code
-      href: https://stapm.gitlab.io/software.html
-    
+      href: https://stapm-platform.github.io/
+      aria-label: STAPM software hub
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/stapm-platform/tobalcepi
+      aria-label: GitHub repository
+
 reference:
 - title: "Use of risk functions"
   contents:
@@ -70,7 +66,7 @@ reference:
   contents:
   - TobLags
   - tobacco_lag_times
-  
+
 - title: "Alcohol relative risks"
 - subtitle: "Disease definitions and relative risks"
   contents:
@@ -79,7 +75,7 @@ reference:
   - alc_icd10_lookups
 
 - subtitle: "Disease risk linked to intoxication"
-  contents:  
+  contents:
   - AlcBinge
   - AlcBinge_stapm
   - PArisk
@@ -87,18 +83,20 @@ reference:
   - binge_params
   - binge_params_stapm
   - binge_params_stapm_scot
+  - binge_params_stapm_wales
+
 - subtitle: "Alcohol lag times"
   contents:
   - AlcLags
-  
+
 - title: "Joint tobacco and alcohol risk"
   contents:
   - TobAlcInt
   - tob_alc_risk_int
   - tobalc_icd10_lookups
-  
+
 - title: "Misc"
   contents:
   - ExpandCodes
   - disease_groups
-  - intervalprob  
+  - intervalprob

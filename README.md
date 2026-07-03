@@ -19,8 +19,8 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 ## The Sheffield Tobacco and Alcohol Policy Modelling Platform
 
 This R package was developed as part of the Sheffield Tobacco and
-Alcohol Policy Modelling <https://stapm.gitlab.io/> by the [School of
-Health and Related Research at the University of
+Alcohol Policy Modelling <https://stapm-platform.github.io/> by the
+[School of Health and Related Research at the University of
 Sheffield](https://www.sheffield.ac.uk/scharr).
 
 The aim of the research programme is to identify and evaluate approaches
@@ -66,12 +66,10 @@ The list of diseases considered in the modelling is available here
 
 ## Code repositories
 
-The code on Github (<https://github.com/STAPM/tobalcepi>) is a mirror of
-the code in a private Gitlab repository where the actual development
-takes place (<https://gitlab.com/stapm/r-packages/tobalcepi>). The code
-in the Github repository is linked to a repository on the Open Science
-Framework, which provides the doi for the package citation
-(<https://osf.io/xq8mv/>).
+The code is developed openly on GitHub
+(<https://github.com/stapm-platform/tobalcepi>). The repository is
+linked to a repository on the Open Science Framework, which provides the
+doi for the package citation (<https://osf.io/xq8mv/>).
 
 ## Citation
 
@@ -79,7 +77,7 @@ Gillespie D, Webster L, Henney M, Brennan A, Angus C (\[YEAR\]).
 tobalcepi: An R Package for Computing the Relative Risks and Population
 Attributable Fractions of Diseases Related to Tobacco and Alcohol. R
 package version \[x.x.x\]. University of Sheffield.
-<https://stapm.github.io/tobalcepi/>. doi:
+<https://stapm-platform.github.io/tobalcepi/>. doi:
 <https://doi.org/10.17605/OSF.IO/XQ8MV>
 
 ## Motivation for developing the R package
@@ -104,7 +102,7 @@ The disease lists and risk functions in this package all have published
 sources, which we have referenced ([Angus et al. 2018](#ref-Angus2018);
 [Webster et al. 2018](#ref-webster2018risk)). We have written some
 working [technical
-descriptions](https://stapm.gitlab.io/r-packages/tobalcepi/articles/index.html)
+descriptions](https://stapm-platform.github.io/tobalcepi/articles/index.html)
 to explain how these risk functions are implemented in STAPM. In order
 to obtain mathematical descriptions of the risk functions for use in
 modelling, we needed to contact some authors to ask for additional
@@ -244,7 +242,7 @@ version of `tobalcepi` from Github with:
 #install.packages("devtools")
 
 devtools::install_git(
-  "https://github.com/stapm/tobalcepi.git", 
+  "https://github.com/stapm-platform/tobalcepi.git", 
   ref = "x.x.x",
   build_vignettes = FALSE)
 
@@ -276,8 +274,8 @@ library(ggplot2) # for plotting
 <div id="ref-Angus2018" class="csl-entry">
 
 Angus, Colin, M Henney, L Webster, and Duncan Gillespie. 2018.
-“Alcohol-Attributable Diseases and Dose-Response Curves for the
-Sheffield Alcohol Policy Model Version 4.0.” The University of
+*Alcohol-Attributable Diseases and Dose-Response Curves for the
+Sheffield Alcohol Policy Model Version 4.0*. The University of
 Sheffield. <https://doi.org/10.15131/shef.data.6819689>.
 
 </div>
@@ -285,7 +283,7 @@ Sheffield. <https://doi.org/10.15131/shef.data.6819689>.
 <div id="ref-webster2018risk" class="csl-entry">
 
 Webster, Laura, Colin Angus, Alan Brennan, and Duncan Gillespie. 2018.
-“Smoking and the Risks of Adult Diseases.” The University of Sheffield.
+*Smoking and the Risks of Adult Diseases*. The University of Sheffield.
 <https://doi.org/10.15131/shef.data.7411451>.
 
 </div>
