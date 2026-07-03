@@ -55,15 +55,6 @@ The code is developed openly on GitHub
 linked to a repository on the Open Science Framework, which provides the
 doi for the package citation (<https://osf.io/xq8mv/>).
 
-## Citation
-
-Gillespie D, Webster L, Henney M, Brennan A, Angus C (\[YEAR\]).
-tobalcepi: An R Package for Computing the Relative Risks and Population
-Attributable Fractions of Diseases Related to Tobacco and Alcohol. R
-package version \[x.x.x\]. University of Sheffield.
-<https://stapm-platform.github.io/tobalcepi/>. doi:
-<https://doi.org/10.17605/OSF.IO/XQ8MV>
-
 ## Motivation for developing the R package
 
 The motivation for `tobalcepi` was to organise how we store, process and
