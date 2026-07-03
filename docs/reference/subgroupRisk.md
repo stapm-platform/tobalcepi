@@ -1,0 +1,163 @@
+# Summarise relative risk
+
+Calculate the average relative risk across individuals in a subgroup, or
+calculate the subgroup specific attributable fraction based on the
+current relative risks.
+
+## Usage
+
+``` r
+subgroupRisk(
+  data,
+  label = NULL,
+  disease_names = c("Pharynx", "Oral_cavity"),
+  af = FALSE,
+  use_weights = FALSE,
+  year_range = "all",
+  pool = FALSE,
+  subgroups = c("sex", "age_cat"),
+  mort_or_morb = "mort",
+  alc_mort_and_morb = c("Ischaemic_heart_disease", "LiverCirrhosis",
+    "Haemorrhagic_Stroke", "Ischaemic_Stroke"),
+  substance = c("alc", "tob", "tobalc")[3],
+  smooth = FALSE,
+  oesoph_subtypes = FALSE
+)
+```
+
+## Arguments
+
+- data:
+
+  A data table of individual characteristics.
+
+- label:
+
+  Character - a label to append to the outcome variable to help identify
+  it in later calculations.
+
+- disease_names:
+
+  Character vector - the names of the diseases for which summaries of
+  relative risk are required.
+
+- af:
+
+  Logical - if TRUE, then attributable fractions are calculated. If
+  FALSE, then the total relative risk is calculated. Defaults to FALSE.
+
+- use_weights:
+
+  Logical - should the calculation account for survey weights. Defaults
+  to FALSE. Weight variable must be called "wt_int".
+
+- year_range:
+
+  Either an integer vector of the years to be selected or "all".
+  Defaults to "all".
+
+- pool:
+
+  Logical - should the years selected be pooled. Defaults to FALSE.
+
+- subgroups:
+
+  Character vector - the variable names of the subgroups used to
+  stratify the estimates.
+
+- mort_or_morb:
+
+  Character - for alcohol related diseases that have separate relative
+  risk curves for mortality and morbidity, should the risks
+  corresponding to mortality ("mort") or morbidity ("morb") be used.
+
+- alc_mort_and_morb:
+
+  Character vector of the names of the alcohol related diseases that
+  have separate risk functions for mortality and morbidity.
+
+- substance:
+
+  Whether to compute relative risks for just alcohol ("alc"), just
+  tobacco ("tob") or joint risks for tobacco and alcohol ("tobalc").
+
+- smooth:
+
+  Logical - should the age patterns in average risk be smoothed with a
+  moving average. For use only if average risk is stratified by single
+  years of age. Defaults to FALSE
+
+- oesoph_subtypes:
+
+  Logical - should the attributable fractions for oesophageal cancer be
+  multiplied by the proportions of each subtype. Defaults to FALSE.
+
+## Value
+
+Returns a data table containing the subgroup specific summaries for each
+disease.
+
+## Details
+
+Attributable fractions are calculated using the method as in Bellis &
+Jones 2014, which is also equivalent to the method described in the
+Brennan et al. 2015 SAPM mathematical description paper.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Simulate individual data
+
+# Using the parameters for the Gamma distribution from Kehoe et al. 2012
+n <- 1e4
+grams_ethanol_day <- rgamma(n, shape = 0.69, scale = 19.03)
+
+data <- data.table(
+  year = 2016,
+  weekmean = grams_ethanol_day * 7 / 8,
+  peakday = 2 * grams_ethanol_day / 8,
+  age = rpois(n, 30),
+  sex = sample(x = c("Male", "Female"), size = n, replace = T),
+  income5cat = "1_lowest income",
+  imd_quintile = "5_most_deprived",
+  kids = "0",
+  social_grade = "C2DE",
+  eduend4cat = "16-18", # age finished education
+  ethnic2cat = "white", # white / non-white
+  employ2cat = "yes", # employed / not
+  wtval = rnorm(n, mean = 60, sd = 5), # weight in kg
+  htval = rnorm(n, mean = 1.7, sd = .1) # height in m
+)
+
+# Disease names
+alc_disease_names <- c(
+  "Pharynx",
+  "Ischaemic_heart_disease",
+  "LiverCirrhosis",
+  "Transport_injuries",
+  "Alcohol_poisoning",
+  "Alcoholic_gastritis"
+)
+
+# Run basic function without alcohol lags
+test_data <- RRFunc(
+  data = copy(data),
+  substance = "alc",
+  alc_diseases = alc_disease_names,
+  alc_wholly_chronic_thresholds = c(2, 2),
+  alc_wholly_acute_thresholds = c(3, 3),
+  show_progress = TRUE
+)
+
+# Calculate alcohol attributable fractions
+test_aafs <- subgroupRisk(
+  data = test_data$data_plus_rr,
+  disease_names = alc_disease_names,
+  af = TRUE,
+  subgroups = "sex"
+)
+
+test_aafs
+} # }
+```

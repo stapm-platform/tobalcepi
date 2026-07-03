@@ -1,0 +1,101 @@
+# Tobacco relative risks
+
+Relative risks for current vs. never cigarette smokers.
+
+## Usage
+
+``` r
+RRtob(
+  data,
+  disease = "Pharynx",
+  smoker_status_var = "smk.state",
+  sex_var = "sex",
+  age_var = "age",
+  rr_data = tobalcepi::tobacco_relative_risks
+)
+```
+
+## Arguments
+
+- data:
+
+  Data table of individual characteristics.
+
+- disease:
+
+  Character - the name of the disease for which the relative risks will
+  be computed.
+
+- smoker_status_var:
+
+  Character - the name of the variable containing whether an individual
+  is a current, former or never smoker.
+
+- sex_var:
+
+  Character - the name of the variable containing individual sex.
+
+- age_var:
+
+  Character - the name of the variable containing individual age in
+  single years.
+
+- rr_data:
+
+  Data table containing the relative risks of current vs. never smokers.
+  The data table "tobacco_relative_risks" is embedded within the stapmr
+  package.
+
+## Value
+
+Returns a numeric vector of each individual's relative risks for the
+tobacco-related disease specified by "disease".
+
+## Details
+
+We focus on the risks of current smoking and limit ourselves to diseases
+that affect the consumer themselves e.g. excluding secondary effects of
+smoking on children. We assume the equivalence of relative risks and
+odds ratios. Our starting point was the Royal College of Physician's
+(RCP) report "Hiding in plain sight: Treating tobacco dependency in the
+NHS", which reviewed smoking-disease associations to produce an updated
+list of diseases that are caused by smoking and updated risk sources. We
+mainly keep to the RCP report's disease list and risk functions, with
+any deviations from the RCP list and risk sources being for one of two
+reasons:
+
+- There are often slightly conflicting ICD-10 code definitions used for
+  some diseases and we have sought to harmonise these consistently
+  across both tobacco and alcohol, based on the Sheffield Alcohol Policy
+  Model (SAPM) v4.0 disease list;
+
+- Since publication of the RCP report, Cancer Research UK (CRUK)
+  produced their own disease list and risk sources for cancers
+  attributable to modifiable risk factors, including tobacco and
+  alcohol. Discussions with CRUK shaped the disease definitions in our
+  updated Sheffield disease list for alcohol. Where there are
+  differences in the risk sources used in the RCP report and CRUK's
+  work, we take the estimate that matches most closely to our disease
+  definitions, or the more recent estimate.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Example data
+
+n <- 1e2
+
+data <- data.table(
+  smk.state = sample(x = c("current", "former", "never"), size = n, replace = T),
+  sex = "Female",
+  age = 30
+)
+
+# Apply the function
+test <- RRtob(
+  data,
+  disease = "Pharynx"
+)
+} # }
+```
