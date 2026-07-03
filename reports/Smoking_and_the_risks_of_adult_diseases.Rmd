@@ -105,7 +105,7 @@ suppressPackageStartupMessages(library(cowplot))
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'vignettes/refs/packages.bib')
+), 'refs/packages.bib')
 ```
 
 \newpage 
