@@ -1,0 +1,27 @@
+# Get started
+
+To illustrate the use of the `tobalcepi` functions for different tasks,
+we have created example workflows. You can use these examples to help
+understand how the code works, run them to generate model inputs, or use
+them as a starting point for the development of a new project.
+
+At the moment, these workflows are accessible only to the project team.
+To access them, you will need to be added to the STAPM Gitlab
+organisation.
+
+The workflows are listed below:
+
+- [Smoking and the risks of adult diseases
+  report](https://gitlab.com/stapm/model-inputs/epi_tobacco_risk). A
+  working Rmarkdown version of the published report.  
+- [Alcohol-attributable diseases and dose-response curves
+  report](https://gitlab.com/stapm/model-inputs/epi_alcohol_risk). A
+  working Rmarkdown version of the published report.  
+- [Population attributable
+  fractions](https://gitlab.com/stapm/model-inputs/epi_pop_attrib_fractions).
+  Working repo for our main project on the fractions of disease
+  attributable to tobacco and/or alcohol.  
+- [Irish alcohol attributable
+  fractions](https://gitlab.com/stapm/projects/irish-aafsr). A
+  consultancy project in which we adapted the code in `tobalcepi` to
+  suit alcohol survey data from Ireland.

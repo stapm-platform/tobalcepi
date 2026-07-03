@@ -1,0 +1,158 @@
+# Calculate Population Attributable Fractions
+
+Uses \[tobalcepi::RRFunc()\] and \[tobalcepi::subgroupRisk()\] to
+calculate population attributable fractions based on the survey data
+provided.
+
+## Usage
+
+``` r
+PAFcalc(
+  data = NULL,
+  rrdata = NULL,
+  substance,
+  tob_include_risk_in_former_smokers = TRUE,
+  alc_protective = TRUE,
+  alc_wholly_chronic_thresholds = c(2, 2),
+  alc_wholly_acute_thresholds = c(3, 4),
+  grams_ethanol_per_unit = 8,
+  use_weights = FALSE,
+  year_range = "all",
+  pool = FALSE,
+  subgroups = c("sex", "age_cat"),
+  tobalc_include_int = FALSE,
+  within_model = FALSE,
+  mort_or_morb = c("mort", "morb")[1],
+  country = c("England", "Scotland")[1],
+  other_lag_function = "Cancers",
+  oesoph_subtypes = FALSE
+)
+```
+
+## Arguments
+
+- data:
+
+  Data table of individual characteristics. Defaults to NULL.
+
+- rrdata:
+
+  Optional - data table containing individual tobacco and alcohol
+  consumption characteristics with relative risks of disease already
+  assigned. This could be useful for increasing efficiency - saving
+  computer processing time. Defaults to NULL.
+
+- substance:
+
+  Whether to compute relative risks for just alcohol ("alc"), just
+  tobacco ("tob") or joint risks for tobacco and alcohol ("tobalc").
+
+- tob_include_risk_in_former_smokers:
+
+  Logical - whether the residual risks of smoking in former smokers
+  should be considered (defaults to TRUE).
+
+- alc_protective:
+
+  Logical - whether to include the protective effects of alcohol in the
+  risk function. Defaults to TRUE. If TRUE, then the part of the risk
+  function \< 1 is set to equal 1.
+
+- alc_wholly_chronic_thresholds:
+
+  Numeric vector - the thresholds in UK standard units of alcohol per
+  day over which individuals begin to experience an elevated risk for
+  chronic diseases that are wholly attributable to alcohol. Input in the
+  order c(female, male). Defaults to the current UK healthy drinking
+  threshold of 14 units/week for females and males, or 2 units/day.
+
+- alc_wholly_acute_thresholds:
+
+  Numeric vector - the thresholds in UK standard units of alcohol /day
+  over which individuals begin to experience an elevated risk for acute
+  diseases that are wholly attributable to alcohol. Input in the form
+  c(female, male). Defaults to 3 units/day for females and 4 units/day
+  for males.
+
+- grams_ethanol_per_unit:
+
+  Numeric value giving the conversion factor for the number of grams of
+  pure ethanol in one UK standard unit of alcohol.
+
+- use_weights:
+
+  Logical - should the calculation account for survey weights. Defaults
+  to FALSE. Weight variable must be called "wt_int".
+
+- year_range:
+
+  Either an integer vector of the years to be selected or "all".
+  Defaults to "all".
+
+- pool:
+
+  Logical - should the years selected be pooled. Defaults to FALSE.
+
+- subgroups:
+
+  Character vector - the variable names of the subgroups used to
+  stratify the estimates.
+
+- tobalc_include_int:
+
+  Logical - in computing joint relative risks for tobacco and alcohol,
+  should a (synergistic/multiplicative) interaction between exposure to
+  tobacco and alcohol be included. Defaults to FALSE. If TRUE, then only
+  interactive effects for oesophageal, pharynx, oral cavity and larynx
+  cancers are considered.
+
+- within_model:
+
+  Logical - is the function being used to calculate PAFs from the
+  results of a STAPM model simulation. Defaults to FALSE.
+
+- mort_or_morb:
+
+  Character string - whether the risk functions for conditions with
+  separate mortality and morbidity risk functions should refer to
+  mortality or morbidity. Values could be "mort" or "morb". Default is
+  "mort".
+
+- country:
+
+  Character string - "England" or "Scotland"
+
+- other_lag_function:
+
+  Character - the name of the lag function to use for tobacco related
+  conditions that are not categorised as CVD, COPD, or Cancer. Options:
+  c("Cancers", "CVD", "COPD", "immediate"). The default is "Cancers",
+  which gives the most conservative (i.e. slowest) estimate of the rate
+  of decline in the risk of disease after quitting smoking.
+
+- oesoph_subtypes:
+
+  Logical - should the attributable fractions for oesophageal cancer be
+  multiplied by the proportions of each subtype. Defaults to FALSE.
+
+## Value
+
+Returns a data.table containing the estimated PAFs.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+
+tobacco_pafs <- PAFcalc(
+ data = test_data,
+ substance = "tob",
+ tob_include_risk_in_former_smokers = TRUE,
+ use_weights = TRUE,
+ year_range = "all",
+ pool = TRUE,
+ subgroups = c("sex", "age_cat", "imd_quintile")
+)
+
+} # }
+```

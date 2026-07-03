@@ -1,0 +1,102 @@
+# Risk of acute conditions wholly-attributable to alcohol
+
+Uses the 'new' binge model methods to calculate the risk that each
+individual experiences each acute consequence of drinking during one
+year (e.g. alcohol poisoning or the effects of acute intoxication).
+
+## Usage
+
+``` r
+WArisk_acute(
+  interval_prob_vec,
+  SODFreq,
+  sex,
+  grams_ethanol_per_unit = 8,
+  alc_wholly_acute_thresholds = c(3, 4)
+)
+```
+
+## Arguments
+
+- interval_prob_vec:
+
+  Column of vectors - the probabilities that each individual drinks each
+  amount of grams of ethanol (1:600) on a single drinking occasion.
+
+- SODFreq:
+
+  Numeric - the expected number of drinking occasions that each
+  individual has each week.
+
+- sex:
+
+  Character - individual sex (Male or Female).
+
+- grams_ethanol_per_unit:
+
+  Numeric value giving the conversion factor for the number of grams of
+  pure ethanol in one UK standard unit of alcohol.
+
+- alc_wholly_acute_thresholds:
+
+  Numeric vector - the thresholds in UK standard units of alcohol /day
+  over which individuals begin to experience an elevated risk for acute
+  diseases that are wholly attributable to alcohol. Input in the form
+  c(female, male). Defaults to 3 units/day for females and 4 units/day
+  for males.
+
+## Value
+
+Returns a numeric vector of each individual's relative risk of the acute
+consequences of drinking.
+
+## Details
+
+The function implements a new method for estimating risk that was
+developed to suit the STAPM modelling. The calculation is based on the
+link between average weekly alcohol consumption and the distribution of
+characteristics of single occasion drinking described by the parameter
+estimates of Hill-McManus et al 2014.
+
+The function uses the outputs of \[tobalcepi::AlcBinge_stapm()\] to
+estimate for each individual: (1) the average amount that each
+individual is expected to drink on a single drinking occasion; (2) the
+standard deviation of the amount that each individual is expected to
+drink on a single drinking occasion; (3) the expected number of drinking
+occasions that each individual has each week.
+
+Based on those estimates, a probability distribution is generated over
+the number of units of alcohol that could be consumed on a single
+drinking occasion by each individual. Values for the number of units
+that fall below the binge drinking thresholds (6 units a day for women,
+8 units a day for men) are set to zero. The probability distribution is
+then used to compute the total number of units above the binge
+thresholds that each individual is expected to drink in a year. We
+assume that each individual's risk is proportional to that value.
+
+## Examples
+
+``` r
+
+if (FALSE) { # \dontrun{
+
+# example needs updating
+
+# Function called within RRAlc()
+
+data[ , ar := 
+tobalcepi::WArisk_acute(
+  SODMean = mean_sod[z],
+  SODSDV = occ_sd[z],
+  SODFreq = drink_freq[z],
+  sex = sex[z],
+  grams_ethanol_per_unit = grams_ethanol_per_unit,
+  alc_wholly_acute_thresholds = alc_wholly_acute_thresholds
+)]
+
+risk_indiv <- 1 + data[ , ar] # add 1 to remove 0/0 = Not a number error later
+
+data[ , ar := NULL]
+
+} # }
+```
