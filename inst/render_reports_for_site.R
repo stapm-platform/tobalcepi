@@ -6,4 +6,7 @@ render_report("PAF_methodology_report.Rmd")
 
 
 pkgdown::build_site()        # copies the fresh output in from assets
+
+# commit and push
+
 pkgdown::deploy_to_branch()

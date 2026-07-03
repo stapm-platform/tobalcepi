@@ -31,7 +31,7 @@ header-includes:
   - \usepackage{graphicx}
   - \usepackage{titling}
   - \pretitle{\begin{center}
-    \includegraphics[width=6in,height=4in]{inst/LOGO_SCHARR.png}\LARGE\\\vskip 3em}
+    \includegraphics[width=6in,height=1in]{inst/LOGO_SCHARR.png}\LARGE\\\vskip 3em}
   - \posttitle{\end{center}\vskip 4em}
   - \usepackage{tcolorbox}
   - \usepackage{xcolor}
