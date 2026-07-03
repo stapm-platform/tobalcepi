@@ -82,9 +82,9 @@ et al., as this has the slowest decline in risk.
 
 Kontis V, Mathers CD, Rehm J, Stevens GA, Shield KD, Bonita R, Riley LM,
 Poznyak V, Beaglehole R, Ezzati M (2014). “Contribution of six risk
-factors to achieving the 25× 25 non-communicable disease mortality
-reduction target: a modelling study.” *The Lancet*, **384**(9941),
-427-437. ISSN 0140-6736.
+factors to achieving the 25\<U+00D7\> 25 non-communicable disease
+mortality reduction target: a modelling study.” *The Lancet*,
+**384**(9941), 427-437. ISSN 0140-6736.
 
 Oza S, Thun MJ, Henley SJ, Lopez AD, Ezzati M (2011). “How many deaths
 are attributable to smoking in the United States? Comparison of methods
