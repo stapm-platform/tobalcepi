@@ -9,11 +9,11 @@ template:
 
 authors:
   Duncan Gillespie:
-    href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/gillespie_d
+    href: https://sheffield.ac.uk/smph/duncan-gillespie
   Colin Angus:
-    href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/angus_c
+    href: https://sheffield.ac.uk/smph/colin-angus
   Alan Brennan:
-    href: https://www.sheffield.ac.uk/scharr/sections/heds/staff/brennan_a
+    href: https://sheffield.ac.uk/smph/people/academic/population-health/alan-brennan
 
 navbar:
   structure:
@@ -37,10 +37,6 @@ navbar:
         href: articles/Smoking_and_the_risks_of_adult_diseases.pdf
       - text: Population Attributable Fraction methods
         href: articles/PAF_methodology_report.html
-    software:
-      icon: fa-code
-      href: https://stapm-platform.github.io/
-      aria-label: STAPM software hub
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/stapm-platform/tobalcepi

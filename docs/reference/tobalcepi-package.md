@@ -30,6 +30,8 @@ Authors:
 
 Other contributors:
 
+- Grace Leeming \[contributor\]
+
 - Laura Webster \[contributor\]
 
 - Maddy Henney \[contributor\]

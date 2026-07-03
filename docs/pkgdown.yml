@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   Methods_for_STAPM_disease_risks: Methods_for_STAPM_disease_risks.html
   tobalcepi: tobalcepi.html
-last_built: 2026-07-03T11:36Z
+last_built: 2026-07-03T11:47Z
 urls:
   reference: https://stapm-platform.github.io/tobalcepi/reference
   article: https://stapm-platform.github.io/tobalcepi/articles

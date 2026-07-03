@@ -10,6 +10,7 @@ Authors@R: c(
            email = "c.r.angus@sheffield.ac.uk", role = "aut"),
     person("Alan", "Brennan",
            email = "a.brennan@sheffield.ac.uk", role = "aut"),
+    person("Grace", "Leeming", role = "ctb"),           
     person("Laura", "Webster", role = "ctb"),
     person("Maddy", "Henney", role = "ctb"))
 Description: Functions to assign relative risks of disease to individuals based

@@ -29,6 +29,7 @@ Authors:
 
 Other contributors:
 \itemize{
+  \item Grace Leeming [contributor]
   \item Laura Webster [contributor]
   \item Maddy Henney [contributor]
 }
